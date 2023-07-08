@@ -11,6 +11,7 @@ public class Assertions {
 //		Assert.assertEquals(true, false);
 //		System.out.println("assert2");
 		
+		
 		SoftAssert sAssert = new SoftAssert();
 		sAssert.assertEquals(true, false);
 		System.out.println("assert1");
@@ -19,6 +20,7 @@ public class Assertions {
 		sAssert.assertEquals(true, false);
 		System.out.println("assert3");
 		sAssert.assertAll();
+	
 
 	}
 
