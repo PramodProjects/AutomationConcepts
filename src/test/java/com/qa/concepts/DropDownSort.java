@@ -33,7 +33,12 @@ public class DropDownSort {
 		
 		List<String> afterSort = new ArrayList<String>();
 		afterSort.addAll(beforeSort);
-		Collections.sort(afterSort);
+		// for case insensitive order
+		Collections.sort(afterSort, String.CASE_INSENSITIVE_ORDER);
+		
+		// for case sensitive order
+			//Collections.sort(afterSort);
+				
 		System.out.println(afterSort);
 		
 		if(beforeSort.equals(afterSort)) {

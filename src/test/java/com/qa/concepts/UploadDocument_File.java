@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
-public class FileUpload {
+public class UploadDocument_File {
 
 	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.firefoxdriver().setup();

@@ -6,18 +6,19 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 
-public class DownloadFile_WebDriver {
+public class DownloadFile_Firefox {
 
 	public static void main(String[] args) {
 		System.setProperty("webdriver.gecko.driver",  "./drivers\\geckodriver.exe");
 		FirefoxProfile profile = new FirefoxProfile();
 		profile.setPreference("browser.helperApps.neverAsk.saveToDisk","application/pdf");
-		profile.setPreference("browser.download.manager.showWhenStarting",false);	
+		//profile.setPreference("browser.download.manager.showWhenStarting",false);	
 		profile.setPreference("pdfjs.disabled",true);
 		FirefoxOptions options = new FirefoxOptions();
 		options.setProfile(profile);	
 		WebDriver driver = new FirefoxDriver(options);
-		
+		driver.get("http://the-internet.herokuapp.com/download");		
+		driver.findElement(By.linkText("some-file.txt")).click();
 		
 		
 //	
@@ -36,10 +37,10 @@ public class DownloadFile_WebDriver {
 //		options.setProfile(profile);
 //		WebDriver driver = new FirefoxDriver(options);
 		
-		driver.get("http://demo.automationtesting.in/FileDownload.html");		
-		driver.findElement(By.id("pdfbox")).sendKeys("testing");		
-		driver.findElement(By.id("createPdf")).click();
-		driver.findElement(By.xpath("//a[@id = 'pdf-link-to-download']")).click();
+
+		
+		
+		
 
 	}
 

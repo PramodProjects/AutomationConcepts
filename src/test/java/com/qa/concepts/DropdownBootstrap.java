@@ -15,22 +15,17 @@ public class DropdownBootstrap {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 		driver.get("https://www.jquery-az.com/jquery/demo.php?ex=152.0_1");
-		
+
 		driver.findElement(By.id("btndropdown")).click();
-		List<WebElement> elements = driver.findElements(By.xpath("//div[@class = 'dropdown cq-dropdown dropdownCheckboxes open']//ul//li//label//input"));
+
+		List<WebElement> elements = driver.findElements(By.xpath("//input[@type = 'checkbox']"));
 		for (WebElement webElement : elements) {
 			String s = webElement.getAttribute("value");
-			System.out.println(s);
-			if(s.equals("HTML")) {
-				if (!webElement.isSelected()) {
-					webElement.click();
-					break;
-				}
+			if (s.equals("HTML") && !webElement.isSelected()) {
+				webElement.click();
+				break;
 			}
 		}
-		//driver.quit();
-		
-
 	}
 
 }

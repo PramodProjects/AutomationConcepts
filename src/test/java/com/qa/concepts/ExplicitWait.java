@@ -18,20 +18,18 @@ public class ExplicitWait {
 	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		
+
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		
-		
+
 //		// get text  - using wait element 
 //		driver.get("http://www.leafground.com/pages/appear.html");
 //		WebElement element = driver.findElement(By.xpath("//button[@id= 'btn']"));
 //		ewElementToBeClickable(driver, element);
 //		System.out.println(element.getText());
-		
-		
+
 		// Click - using wait locator
 		driver.get("http://www.leafground.com/pages/TextChange.html");
-		By locator= By.xpath("//button[text() = 'Click ME!']");	
+		By locator = By.xpath("//button[text() = 'Click ME!']");
 		ewVisibilityOfElementLocated(driver, locator);
 		driver.findElement(By.xpath("//button[text() = 'Click ME!']")).click();
 		Alert alert = driver.switchTo().alert();
@@ -39,9 +37,6 @@ public class ExplicitWait {
 		System.out.println(s);
 		driver.quit();
 
-		
-		
-		
 //		// Wait for alert appears
 //		driver.get("http://www.leafground.com/pages/alertappear.html");
 //		driver.findElement(By.id("alert")).click();
@@ -49,11 +44,7 @@ public class ExplicitWait {
 //		Alert alert = driver.switchTo().alert();		
 //		String s = alert.getText();
 //		System.out.println(s);
-		
-		
-		
-		
-		
+
 //		//Get text of element after disapper another element
 //		driver.get("http://www.leafground.com/pages/disapper.html");		
 //		//ewElementToBeClickable(driver, driver.findElement(By.xpath("//strong[contains(text() , 'I know you can do it! Button is disappeared!')]")));
@@ -63,30 +54,30 @@ public class ExplicitWait {
 //		String s = driver.findElement(By.xpath("//strong[contains(text() , 'I know you can do it! Button is disappeared!')]")).getText();
 //		System.out.println(s);
 //		
-		
-		
 
 	}
-	
-	
+
 	public static void ewElementToBeClickable(WebDriver driver, WebElement element) {
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class).until(ExpectedConditions.elementToBeClickable(element));
-			
+		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+				.until(ExpectedConditions.elementToBeClickable(element));
+
 	}
-	
-	
+
 	public static void ewVisibilityOfElementLocated(WebDriver driver, By locator) {
 		new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(locator));
-		
+
 	}
-	
+
 	public static void ewAlertIsPresent(WebDriver driver) {
 		new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
 	}
-	
+
 	public static void ewInvisibilityOf(WebDriver driver, WebElement element) {
 		new WebDriverWait(driver, 20).until(ExpectedConditions.invisibilityOf(element));
 	}
-	
 
+	public static void ewPresenceOfElementLocated(WebDriver driver, By locator) {
+		new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(locator));
+
+	}
 }

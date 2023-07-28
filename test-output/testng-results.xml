@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="55" started-at="2022-05-22T00:06:29 IST" finished-at="2022-05-22T00:06:29 IST">
+  <suite name="Default suite" duration-ms="51" started-at="2023-07-27T23:17:11 IST" finished-at="2023-07-27T23:17:11 IST">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="55" started-at="2022-05-22T00:06:29 IST" finished-at="2022-05-22T00:06:29 IST">
-      <class name="com.qa.concepts.DataProviderTest">
-        <test-method status="PASS" signature="loginTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.concepts.DataProviderTest@19dc67c2]" name="loginTest" duration-ms="0" started-at="2022-05-22T00:06:29 IST" data-provider="testData" finished-at="2022-05-22T00:06:29 IST">
+    <test name="Default test" duration-ms="51" started-at="2023-07-27T23:17:11 IST" finished-at="2023-07-27T23:17:11 IST">
+      <class name="com.qa.concepts.Testt">
+        <test-method status="PASS" signature="Test2(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.concepts.Testt@19dc67c2]" name="Test2" duration-ms="0" started-at="2023-07-27T23:17:11 IST" data-provider="data" finished-at="2023-07-27T23:17:11 IST">
           <params>
             <param index="0">
               <value>
@@ -27,8 +27,8 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="loginTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.concepts.DataProviderTest@19dc67c2]" name="loginTest" duration-ms="0" started-at="2022-05-22T00:06:29 IST" data-provider="testData" finished-at="2022-05-22T00:06:29 IST">
+        </test-method> <!-- Test2 -->
+        <test-method status="PASS" signature="Test2(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.concepts.Testt@19dc67c2]" name="Test2" duration-ms="0" started-at="2023-07-27T23:17:11 IST" data-provider="data" finished-at="2023-07-27T23:17:11 IST">
           <params>
             <param index="0">
               <value>
@@ -48,8 +48,8 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-        <test-method status="PASS" signature="loginTest(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.concepts.DataProviderTest@19dc67c2]" name="loginTest" duration-ms="0" started-at="2022-05-22T00:06:29 IST" data-provider="testData" finished-at="2022-05-22T00:06:29 IST">
+        </test-method> <!-- Test2 -->
+        <test-method status="PASS" signature="Test2(java.lang.String,java.lang.String,java.lang.String)[pri:0, instance:com.qa.concepts.Testt@19dc67c2]" name="Test2" duration-ms="0" started-at="2023-07-27T23:17:11 IST" data-provider="data" finished-at="2023-07-27T23:17:11 IST">
           <params>
             <param index="0">
               <value>
@@ -69,8 +69,8 @@
           </params>
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginTest -->
-      </class> <!-- com.qa.concepts.DataProviderTest -->
+        </test-method> <!-- Test2 -->
+      </class> <!-- com.qa.concepts.Testt -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.util.Date;
 
 import org.apache.poi.ss.usermodel.CellStyle;
 import org.apache.poi.ss.usermodel.FillPatternType;
@@ -17,17 +18,42 @@ public class Excel {
 
 	public static void main(String[] args) throws IOException {
 
-//		// Get row count
+		// Get Sheet Logic 1
+		FileInputStream fis = new FileInputStream("./documents\\excelData.xlsx");
+		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+		XSSFSheet sheet = workbook.getSheet("Sheet1");
+
+//		// Get Sheet Logic 2
+//		File file = new File("./documents\\excelData.xlsx");
+//		XSSFWorkbook workbook = new XSSFWorkbook(file);
+//		XSSFSheet sheet = workbook.getSheet("Sheet1");
+		
+//		// Get Sheet Logic 3	
+//		XSSFWorkbook workbook = new XSSFWorkbook("./documents\\excelData.xlsx");
+//		XSSFSheet sheet = workbook.getSheet("Sheet1");
+
+
+		
+		
+
+//		// Get row count 
 //		FileInputStream fis = new FileInputStream("./documents\\excelData.xlsx");
 //		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 //		XSSFSheet sheet = workbook.getSheet("Sheet1");
+//		// getLastRowNum() is "0" based
 //		int rowCount = sheet.getLastRowNum();
+//		// getPhysicalNumberOfRows() is not "0" based. And A row is always
+//		// interpreted as physical whenever it contains any data.
+//		// The row is initialized not only if any cells in that row
+//		// contain text or formulas but also if they have some data about
+//		// formatting, e.g., the background color, the row height,
+//		// or non-default font used.)
+//		int rows = sheet.getPhysicalNumberOfRows();
 //		System.out.println(rowCount);
+//		System.out.println(rows);
 //		workbook.close();
 //		fis.close();
-		
-		
-		
+
 		
 		
 		
@@ -36,13 +62,13 @@ public class Excel {
 //		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 //		XSSFSheet sheet =  workbook.getSheet("Sheet1");
 //		XSSFRow row =  sheet.getRow(0);
+//		// getLastCellNum() is not "0" based
 //		int colCount = row.getLastCellNum();
 //		System.out.println(colCount);
 //		workbook.close();
 //		fis.close();
-//		
-		
-		
+	
+
 		
 		
 		
@@ -51,9 +77,16 @@ public class Excel {
 //		XSSFWorkbook workbook = new XSSFWorkbook(fis);
 //		XSSFSheet sheet = workbook.getSheet("Sheet1");		
 //		// To get formula value
+//		// getRow() is "0" based
 //		XSSFRow row = sheet.getRow(1);
+//		// getCell() is "0" based
 //		XSSFCell cell = row.getCell(1);
 //		String s = cell.toString();
+//		// String s = cell.getStringCellValue();
+//		// double s = cell.getNumericCellValue();
+//		// String s = cell.getRawValue();
+//		// boolean s = cell.getBooleanCellValue();
+//		// Date s = cell.getDateCellValue(
 //		System.out.println(s);		
 //		if(cell.getCellType()  == CellType.FORMULA ) 
 //		{
@@ -69,7 +102,10 @@ public class Excel {
 //				
 //			}
 //		}
-				
+
+		
+		
+		
 //		// To get empty cell
 //		XSSFRow row1 = sheet.getRow(3);
 //		XSSFCell cell1 = row1.getCell(3);
@@ -78,8 +114,7 @@ public class Excel {
 //		System.out.println(s1);
 //		workbook.close();
 //		fis.close();
-		
-		
+
 		
 		
 		
@@ -99,9 +134,7 @@ public class Excel {
 //		System.out.println(s2);
 //		workbook.close();
 //		fis.close();
-		
-		
-		
+
 		
 		
 		
@@ -133,11 +166,11 @@ public class Excel {
 //		workbook.write(fos);
 //		workbook.close();
 //		fis.close();
+
 		
 		
 		
-		
-//		// Set cell value without conditions
+//		// Set cell value without conditions Logic 1
 //		String path = "./documents\\setExcelData.xlsx";	
 //		XSSFWorkbook workbook = new XSSFWorkbook();		
 //		XSSFSheet sheet = workbook.createSheet("Sheet1");
@@ -146,32 +179,59 @@ public class Excel {
 //		workbook.write(fos);
 //		workbook.close();
 //		fos.close();
+
+		
+		
+//		// Set cell value without conditions Logic 2
+//		XSSFWorkbook workbook = new XSSFWorkbook();
+//		workbook.createSheet("Sheet1").createRow(0).createCell(0).setCellValue("test");
+//		String path = "./documents\\setExcelData.xlsx";
+//		FileOutputStream fos = new FileOutputStream(path);
+//		workbook.write(fos);
+//		workbook.close();
+//		fos.close();
+
 		
 		
 		
 		
-		// Fill color
-		FileInputStream fis =new FileInputStream("./documents\\excelData.xlsx");
-		XSSFWorkbook workbook = new XSSFWorkbook(fis);
+//		// Fill color for existed cell
+//		FileInputStream fis =new FileInputStream("./documents\\excelData.xlsx");
+//		XSSFWorkbook workbook = new XSSFWorkbook(fis);//		
+//		XSSFSheet sheet = workbook.getSheet("Sheet1");
+//		XSSFRow row = sheet.getRow(2);
+//		XSSFCell cell = row.getCell(2);
+//		
+//		CellStyle style = workbook.createCellStyle();
+//		style.setFillForegroundColor(IndexedColors.RED.getIndex());
+//		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+//		
+//		cell.setCellStyle(style);
+//		
+//		FileOutputStream fos = new FileOutputStream("./documents\\excelData.xlsx");
+//		workbook.write(fos);
+//		workbook.close();
+//		fos.close();
+//		fis.close();
+//		
+
 		
-		XSSFSheet sheet = workbook.getSheet("Sheet1");
-		XSSFRow row = sheet.getRow(2);
-		XSSFCell cell = row.getCell(2);
-		
-		CellStyle style = workbook.createCellStyle();
-		style.setFillForegroundColor(IndexedColors.RED.getIndex());
-		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
-		
-		cell.setCellStyle(style);
-		
-		FileOutputStream fos = new FileOutputStream("./documents\\excelData.xlsx");
-		workbook.write(fos);
-		workbook.close();
-		fos.close();
-		fis.close();
 		
 		
 		
+//		// Create cell and Fill color
+//		XSSFWorkbook workbook = new XSSFWorkbook();
+//		CellStyle style = workbook.createCellStyle();
+//		style.setFillForegroundColor(IndexedColors.RED.getIndex());
+//		style.setFillPattern(FillPatternType.SOLID_FOREGROUND);
+//		XSSFCell cell = workbook.createSheet("Sheet1").createRow(0).createCell(0);
+//		cell.setCellValue("test");
+//		cell.setCellStyle(style);
+//		String path = "./documents\\setExcelData.xlsx";
+//		FileOutputStream fos = new FileOutputStream(path);
+//		workbook.write(fos);
+//		workbook.close();
+//		fos.close();
 		
 		
 	}
