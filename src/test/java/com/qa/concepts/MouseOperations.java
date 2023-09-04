@@ -8,7 +8,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.interactions.DoubleClickAction;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -100,7 +99,7 @@ public class MouseOperations {
 //		WebElement element = driver.findElement(By.xpath("//div[@id = 'resizable']//div[3]"));
 //		Actions actions = new Actions(driver);
 //		Thread.sleep(2000);
-//		actions.moveToElement(element).dragAndDropBy(element, 150, 100).build().perform();
+//		actions.dragAndDropBy(element, 50, 50).build().perform();
 //		Thread.sleep(2000);
 
 //		// driver.quit();

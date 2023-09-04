@@ -23,7 +23,8 @@ public class SVG_Elements {
 		Actions actions = new Actions(driver);
 		WebElement element = driver.findElement(By.xpath("//span[@class = 'QCzoEc z1asCe MZy1Rb']//*[name() = 'svg']//*[local-name() = 'path']"));
 		//driver.findElement(By.xpath("//*[name() = 'svg' and @class = 'gb_Te']")).click();
-		actions.contextClick(element).perform();;
+		//actions.contextClick(element).perform();;
+		element.click();
 	}
 
 }

@@ -11,7 +11,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebTable_GetColumnValues {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 //		WebDriverManager.chromedriver().setup();
 //		WebDriver driver = new ChromeDriver();
 //
@@ -32,28 +32,31 @@ public class WebTable_GetColumnValues {
 		
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
+		driver.get("http://the-internet.herokuapp.com/tables");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
 
-		driver.get("https://cosmocode.io/automation-practice-webtable/");
-		// driver.findElement(By.xpath("//strong[text() =
-		// 'Afghanistan']//parent::td//preceding-sibling::td//input[@type =
-		// 'checkbox']")).click();
-		List<WebElement> listRows = driver.findElements(By.xpath("//table[@id = 'countries']//tr"));
-		List<WebElement> columns = driver.findElements(By.xpath("//table[@id = 'countries']//tr[1]//td"));
+		List<WebElement> rows = driver.findElements(By.xpath("//table[@id = 'table1']//tbody//tr"));
+		List<WebElement> columns = driver.findElements(By.xpath("//table[@id = 'table1']//tr//th"));
+
 		for (int i = 0; i < columns.size(); i++) {
-			String columnName = columns.get(i).getText();
-			if (columnName.equals("Country")) {
+
+			String email = columns.get(i).getText();
+			if (email.equals("Email")) {
 				int j = i+1;
-				for (int k = 0; k < listRows.size(); k++) {
-					int m= k+1;
-					String columnValue =driver.findElement(By.xpath("//table[@id = 'countries']//tr["+m +"]//td["+j+"]")).getText();
-					System.out.println(columnValue);
-					
+				for (int k = 1; k <= rows.size(); k++) {
+					String emails = driver
+							.findElement(By.xpath("//table[@id = 'table1']//tr[" + k + "]//td[" + j + "]")).getText();
+					System.out.println(emails);
+
 				}
 				break;
-				
 			}
-			
+
 		}
+
+		
+		
 		
 //		List<WebElement> elements = driver.findElements(By.xpath("//table[@id = 'countries']//td[2]"));
 //		for (WebElement webElement : elements) {

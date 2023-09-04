@@ -16,12 +16,11 @@ public class ShadowDOM {
 		
 		
 		
-		JavascriptExecutor jse = (JavascriptExecutor) driver;
-		WebElement element1 = (WebElement) jse.executeScript("return document.querySelector(\"body > downloads-manager\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#search\").shadowRoot.querySelector(\"#searchInput\")");
-		//WebElement element1 = (WebElement) jse.executeScript("return document.querySelector('downloads-manager').shadowRoot.querySelector('downloads-toolbar').shadowRoot.querySelector('cr-toolbar#toolbar').shadowRoot.querySelector('cr-toolbar-search-field')");
+		JavascriptExecutor jse1 = (JavascriptExecutor)driver;
+		WebElement element1 = (WebElement)jse1.executeScript("return document.querySelector(\"body > downloads-manager\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#toolbar\").shadowRoot.querySelector(\"#search\").shadowRoot.querySelector(\"#searchInput\")");
 		
-		((JavascriptExecutor) driver).executeScript("arguments[0].value = 'test'", element1);
-		
+		JavascriptExecutor jse2 = (JavascriptExecutor)driver;
+		jse2.executeScript("arguments[0].value='test'", element1);
 	}
 
 }

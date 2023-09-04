@@ -38,9 +38,9 @@ public class UploadDocument_RobotClass {
 		rb.keyPress(KeyEvent.VK_CONTROL);
 		rb.keyPress(KeyEvent.VK_V);
 		rb.delay(2000);
-		rb.keyRelease(KeyEvent.VK_CONTROL);
-		rb.keyRelease(KeyEvent.VK_V);
 		
+		rb.keyRelease(KeyEvent.VK_CONTROL);
+		rb.keyRelease(KeyEvent.VK_V);		
 		rb.delay(2000);
 		
 		rb.keyPress(KeyEvent.VK_ENTER);

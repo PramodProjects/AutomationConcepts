@@ -1,5 +1,6 @@
 package com.qa.concepts;
 
+import java.time.Duration;
 import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.Alert;
@@ -19,7 +20,7 @@ public class ExplicitWait {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
 
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
 //		// get text  - using wait element 
 //		driver.get("http://www.leafground.com/pages/appear.html");
@@ -58,26 +59,26 @@ public class ExplicitWait {
 	}
 
 	public static void ewElementToBeClickable(WebDriver driver, WebElement element) {
-		new WebDriverWait(driver, 20).ignoring(StaleElementReferenceException.class)
+		new WebDriverWait(driver, Duration.ofSeconds(10)).ignoring(StaleElementReferenceException.class)
 				.until(ExpectedConditions.elementToBeClickable(element));
 
 	}
 
 	public static void ewVisibilityOfElementLocated(WebDriver driver, By locator) {
-		new WebDriverWait(driver, 20).until(ExpectedConditions.visibilityOfElementLocated(locator));
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOfElementLocated(locator));
 
 	}
 
 	public static void ewAlertIsPresent(WebDriver driver) {
-		new WebDriverWait(driver, 20).until(ExpectedConditions.alertIsPresent());
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.alertIsPresent());
 	}
 
 	public static void ewInvisibilityOf(WebDriver driver, WebElement element) {
-		new WebDriverWait(driver, 20).until(ExpectedConditions.invisibilityOf(element));
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.invisibilityOf(element));
 	}
 
 	public static void ewPresenceOfElementLocated(WebDriver driver, By locator) {
-		new WebDriverWait(driver, 20).until(ExpectedConditions.presenceOfElementLocated(locator));
+		new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(locator));
 
 	}
 }

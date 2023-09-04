@@ -1,5 +1,11 @@
 package com.qa.concepts;
 
+import java.awt.AWTException;
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -23,6 +29,8 @@ import java.util.function.Function;
 import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
+import javax.imageio.ImageIO;
+
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.poi.openxml4j.exceptions.InvalidFormatException;
@@ -41,18 +49,20 @@ import org.openqa.selenium.ElementNotInteractableException;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.OutputType;
-import org.openqa.selenium.Rectangle;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.events.WebDriverListener;
 import org.openqa.selenium.support.pagefactory.ByAll;
 import org.openqa.selenium.support.pagefactory.ByChained;
 import org.openqa.selenium.support.ui.ExpectedCondition;
@@ -78,23 +88,20 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Test {
 
-	public static void main(String[] args) throws IOException, InterruptedException, InvalidFormatException {
+	public static void main(String[] args)
+			throws IOException, InterruptedException, InvalidFormatException, AWTException {
 
-		WebDriverManager.chromedriver().setup();
+		
+		//WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("https://demo.automationtesting.in/Loader.html");
-		driver.manage().window().maximize();
-		Thread.sleep(2000);
+		driver.get("http://google.com");
+		driver.navigate().back();
+	
 
-		driver.findElement(By.id("loader")).click();
-
-		Wait<WebDriver> wait = new FluentWait<WebDriver>(driver).withTimeout(Duration.ofSeconds(30))
-				.pollingEvery(Duration.ofSeconds(1)).ignoring(ElementNotInteractableException.class);
-
-		WebElement element = wait
-				.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//button[text() = 'Close']")));
-		element.click();
+		Thread.sleep(3000);
+		String dateValue = "";
+		JavascriptExecutor js = ((JavascriptExecutor) driver);
+		js.executeScript("arguments[0].setAttribute('value','"+dateValue+"');", "");
 
 	}
-
 }

@@ -12,14 +12,17 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Sortable {
 
-	public static void main(String[] args) {
-		WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://www.leafground.com/pages/sortable.html");
-		List<WebElement> elements = driver.findElements(By.xpath("//ul[@id= 'sortable']//li"));
+	public static void main(String[] args) throws InterruptedException {
+		WebDriverManager.chromedriver().setup();	
+		WebDriver driver = new ChromeDriver();		
+		driver.get("https://jqueryui.com/sortable/");
+		driver.manage().window().maximize();
+		Thread.sleep(2000);
+		driver.switchTo().frame(0);
+		List<WebElement> elements = driver.findElements(By.xpath("//ul[@id = 'sortable']//li//span"));
+		System.out.println(elements.size());
 		Actions actions = new Actions(driver);
-		actions.dragAndDrop(elements.get(5), elements.get(2)).build().perform();
-
+		actions.dragAndDrop(elements.get(4), elements.get(2)).build().perform();
 	}
 
 }
