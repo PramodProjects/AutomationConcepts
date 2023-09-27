@@ -1,5 +1,7 @@
 package com.qa.concepts;
 
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.List;
 
 import org.openqa.selenium.By;
@@ -12,10 +14,10 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class Dropdown {
 
-	public static void main(String[] args) throws InterruptedException {
+	public static void main(String[] args) throws InterruptedException, MalformedURLException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("http://www.leafground.com/pages/Dropdown.html");
+		driver.navigate().to(new URL("http://127.0.0.1:9515"));
 
 //		// Select value using index
 //		WebElement element = driver.findElement(By.id("dropdown1"));

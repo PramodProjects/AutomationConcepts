@@ -60,8 +60,11 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.firefox.FirefoxProfile;
 import org.openqa.selenium.htmlunit.HtmlUnitDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.support.Color;
+import org.openqa.selenium.support.events.WebDriverEventListener;
 import org.openqa.selenium.support.events.WebDriverListener;
 import org.openqa.selenium.support.pagefactory.ByAll;
 import org.openqa.selenium.support.pagefactory.ByChained;
@@ -92,16 +95,5 @@ public class Test {
 			throws IOException, InterruptedException, InvalidFormatException, AWTException {
 
 		
-		//WebDriverManager.chromedriver().setup();
-		WebDriver driver = new ChromeDriver();
-		driver.get("http://google.com");
-		driver.navigate().back();
-	
-
-		Thread.sleep(3000);
-		String dateValue = "";
-		JavascriptExecutor js = ((JavascriptExecutor) driver);
-		js.executeScript("arguments[0].setAttribute('value','"+dateValue+"');", "");
-
 	}
 }

@@ -26,7 +26,7 @@ public class Collections_Comparator {
 class Descending implements Comparator
 {
 
-	@Override
+	
 	public int compare(Object o1, Object o2) {
 		Integer I1 = (Integer)o1;
 		Integer I2 = (Integer)o2;
