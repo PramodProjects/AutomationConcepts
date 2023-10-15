@@ -13,47 +13,81 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 
 public class WebTable_Scenarios {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		WebDriverManager.chromedriver().setup();
 		WebDriver driver = new ChromeDriver();
-		driver.get("http://www.leafground.com/pages/table.html");
-		List<WebElement> rows = driver.findElements(By.xpath("//table[@id = 'table_id']//tr"));
-		List<WebElement> columns = driver.findElements(By.xpath("//table[@id = 'table_id']//tr//th"));
-		
-		// Get the count of number of columns
-		System.out.println(columns.size());
-		
-		// Get the count of number of rows
-		System.out.println(rows.size());
-		
-		// Get the progress value of 'Learn to interact with Elements'
-		List<WebElement> elements = driver.findElements(By.xpath("//table[@id = 'table_id']//tr//td"));
-		String cValue = "Learn to interact with Elements";
-		for (WebElement webElement : elements) {
-			if(webElement.getText().equals(cValue)){
-				String s = driver.findElement(By.xpath("//table[@id = 'table_id']//tr//td[text() = '"+cValue+"']//following-sibling::td[1]")).getText();
-				System.out.println(s);
-			}
-		}
-		
-		// Check the vital task for the least completed progress.
-        List<WebElement> elementsColumn = driver.findElements(By.xpath("//table[@id = 'table_id']//td[2]"));
-        List<Integer> listInteger = new ArrayList<Integer>();
-		for (WebElement webElement : elementsColumn) {
-			String m =webElement.getText();
-			
-			Integer num  = Integer.valueOf(m.split("%")[0]);			
-			listInteger.add(num);		
-			
-		}
-		Collections.sort(listInteger);
-		System.out.println(listInteger);
-		System.out.println(listInteger.get(0));
-		String n = listInteger.get(0).toString().concat("%");
-		System.out.println(n);
-		driver.findElement(By.xpath("//table[@id = 'table_id']//td[text() = '"+n+"']//following-sibling::td[1]//input")).click();
-		//driver.findElement(By.xpath("//table[@id = 'table_id']//td[text() = '30%']//following-sibling::td[1]//input")).click();
+		driver.get("http://seleniumpractise.blogspot.com/");
+		driver.manage().window().maximize();
+		Thread.sleep(3000);
 
+		// Get column count
+		List<WebElement> headerElements = driver.findElements(By.xpath("//table[@id = 'customers']//th"));
+		System.out.println("Column count - " + headerElements.size());
+
+		// Get header names
+		System.out.println("Header names========");
+		for (WebElement element : headerElements) {
+			System.out.println(element.getText());
+		}
+
+		// Verify column name present in header
+		System.out.println("Verify column name present in header========");
+		for (WebElement element : headerElements) {
+			String columnName = element.getText();
+			if (columnName.equals("Country")) {
+				System.out.println("Column name present");
+			}
+
+		}
+
+		// Get all row count
+		List<WebElement> rowElements = driver.findElements(By.xpath("//table[@id = 'customers']//tr"));
+		System.out.println("Row count - " + rowElements.size());
+
+		// Get 2nd row values
+		List<WebElement> specificRowElements = driver.findElements(By.xpath("//table[@id = 'customers']//tr[2]//td"));
+		System.out.println("Print specific row values========");
+		for (WebElement element : specificRowElements) {
+			String columnName = element.getText();
+			System.out.println(columnName);
+		}
+
+		// Print values of row based on cell value
+		List<WebElement> olaRowElements = driver
+				.findElements(By.xpath("//table[@id = 'customers']//td[text() = 'Ola']//parent::tr//td"));
+		System.out.println("Row values based on cell value========");
+		for (WebElement element : olaRowElements) {
+			String cellName = element.getText();
+			System.out.println(cellName);
+		}
+
+		// Print all cell values in the table
+		List<WebElement> cellElements = driver.findElements(By.xpath("//table[@id = 'customers']//td"));
+		System.out.println("All cell values========");
+		for (WebElement element : cellElements) {
+			String columnName = element.getText();
+			System.out.println(columnName);
+		}
+
+		// Print specific column values
+		List<WebElement> countryElements = driver.findElements(By.xpath("//table[@id = 'customers']//td[4]"));
+		System.out.println("Specific column values========");
+		for (WebElement element : countryElements) {
+			String columnName = element.getText();
+			System.out.println(columnName);
+		}
+
+		// Select check box based on value
+		System.out.println("Select check box before Ola========");
+		WebElement checkBox = driver
+				.findElement(By.xpath("//table[@id = 'customers']//td[text() = 'Ola']//preceding-sibling::td//input"));
+		checkBox.click();
+
+		// Click link based on value
+		System.out.println("Click link after Ola========");
+		WebElement link = driver
+				.findElement(By.xpath("//table[@id = 'customers']//td[text() = 'Ola']//following-sibling::td[3]//a"));
+		link.click();
 
 	}
 
