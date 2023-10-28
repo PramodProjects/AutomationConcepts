@@ -96,6 +96,7 @@ public class Test {
 
 		WebDriver driver = new FirefoxDriver();
 		driver.get("https://www.google.com/");
+		driver.getCurrentUrl();
 		
 		
 	}
