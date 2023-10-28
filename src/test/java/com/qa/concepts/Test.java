@@ -94,8 +94,7 @@ public class Test {
 	public static void main(String[] args)
 			throws IOException, InterruptedException, InvalidFormatException, AWTException {
 
-		WebDriver driver = new FirefoxDriver();
-		driver.get("https://www.google.com/");
+		
 		
 		
 	}
