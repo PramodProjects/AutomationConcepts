@@ -24,7 +24,7 @@ public class Testt {
 
 	
 
-// test method1
+// test local1
 	@Test(dataProvider = "data")
 	public void Test2(String a, String b, String c) {
 // test method2
@@ -35,8 +35,9 @@ public class Testt {
 	public String[][] data(){
 		String[][] datavalues = {{"test1", "111", "123"}, {"test2", "222", "789"}, {"test3", "333", "908"}};
 		return datavalues;
+
 		// test method3
-	}
+		}
 
 
 
@@ -45,5 +46,7 @@ public class Testt {
 	
 
 
-// test method4
+	// test local3
+
+
 }
